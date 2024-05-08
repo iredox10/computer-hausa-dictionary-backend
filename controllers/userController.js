@@ -15,6 +15,7 @@ export const register = async (req, res) => {
     const matchUser = await User.findOne({ username: req.body.username });
     if (matchUser) {
       res.statu(404).json("user already exist!!");
+      return
     }
     const user = await User.create({
       fullname: req.body.fullname,
